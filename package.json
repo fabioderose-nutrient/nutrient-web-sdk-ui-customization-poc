@@ -1,0 +1,18 @@
+{
+  "name": "nutrient-web-sdk-ui-customization-poc",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Interactive playground for customising the Nutrient Web SDK user interface",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "theme-tokens": "node scripts/extract-theme-tokens.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "vite": "^8.3.5"
+  }
+}

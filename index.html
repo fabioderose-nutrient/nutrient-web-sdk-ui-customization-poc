@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web SDK UI customization playground</title>
+    <meta name="description" content="Interactive playground that shows how far the Nutrient Web SDK user interface can be customised.">
+    <script src="__SDK_SCRIPT_URL__"></script>
+    <link rel="stylesheet" href="/src/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <h1>Web SDK UI playground</h1>
+        <span class="version" id="sdk-version">Nutrient Web SDK</span>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="button" id="share-link">Copy share link</button>
+        <button type="button" class="button" id="reset-all">Reset</button>
+        <button type="button" class="button primary" id="show-code">Copy configuration</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel" id="panel" aria-label="Settings"></aside>
+
+      <section class="stage" aria-label="Viewer">
+        <div class="host-controls" id="host-controls" hidden>
+          <div class="host-caption">Your page</div>
+        </div>
+        <div class="viewer-frame">
+          <div id="pg-viewer" class="viewer"></div>
+          <div class="viewer-busy" id="viewer-busy" hidden><span class="spinner"></span>Loading the viewer</div>
+          <div class="viewer-error" id="viewer-error" hidden></div>
+        </div>
+        <footer class="status" id="status">
+          <span class="status-dot" id="status-dot"></span>
+          <code class="status-call" id="status-call">Starting</code>
+          <span class="status-meta" id="status-meta"></span>
+          <button type="button" class="link" id="toggle-log" aria-expanded="false" aria-controls="log">Activity</button>
+        </footer>
+        <ol class="log" id="log" hidden aria-label="Applied calls"></ol>
+      </section>
+    </main>
+
+    <div class="drawer" id="code-drawer" hidden role="dialog" aria-modal="true" aria-labelledby="code-title">
+      <div class="drawer-backdrop" data-close></div>
+      <div class="drawer-panel">
+        <div class="drawer-head">
+          <div>
+            <h2 id="code-title">Configuration</h2>
+            <p class="drawer-sub">The code that reproduces the viewer on the right. The playground runs this same code.</p>
+          </div>
+          <button type="button" class="icon-button close" data-close aria-label="Close">&times;</button>
+        </div>
+        <div class="tabs" role="tablist" id="code-tabs"></div>
+        <pre class="code" id="code-view" tabindex="0"><code></code></pre>
+        <div class="drawer-actions">
+          <span class="drawer-note" id="code-note"></span>
+          <button type="button" class="button" id="download-file">Download file</button>
+          <button type="button" class="button primary" id="copy-file">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-area" id="toast-area" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
